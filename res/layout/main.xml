@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+        >
+    <fragment
+            android:id="@+id/fragment_home"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            class="org.clownqiang.BluetoothProject.fragment.HomeFragment"
+            />
+    <fragment
+            android:id="@+id/fragment_second"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            class="org.clownqiang.BluetoothProject.fragment.SecondFragment"
+
+            />
+    <fragment
+            android:id="@+id/fragment_about"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            class="org.clownqiang.BluetoothProject.fragment.AboutFragment"
+            />
+    <org.clownqiang.BluetoothProject.widget.FragmentIndicator
+            android:id="@+id/indicator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_bright"
+            />
+</LinearLayout>
+
