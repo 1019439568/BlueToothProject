@@ -1,10 +1,15 @@
 package org.clownqiang.BluetoothProject;
 
+import android.bluetooth.BluetoothAdapter;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
+import org.clownqiang.BluetoothProject.util.BlueToothUtil;
 import org.clownqiang.BluetoothProject.widget.FragmentIndicator;
 
 public class MainActivity extends FragmentActivity {
@@ -13,6 +18,8 @@ public class MainActivity extends FragmentActivity {
      */
 
     private static Fragment[] fragments;
+
+    private static final String TAG = "MAIN_ACTIVITY";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,4 +49,5 @@ public class MainActivity extends FragmentActivity {
             }
         });
     }
+
 }

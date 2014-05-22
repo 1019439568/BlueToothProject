@@ -10,7 +10,10 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.UUID;
+import java.util.logging.Handler;
 
 /**
  * Created by clownqiang on 14-5-18.
@@ -25,62 +28,50 @@ public class BlueToothUtil {
     private BluetoothDevice bluetoothDevice = null;
 
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-    private static String address = "00:12:02:22:06:61";
+    private static String address = "00:14:03:12:19:00";
 
     private static final String TAG = "BlueTooth_Util";
 
-    public BlueToothUtil(Context context) {
+    public BlueToothUtil(Context context,BluetoothSocket bluetoothSocket) {
         this.context = context;
+        this.bluetoothSocket = bluetoothSocket;
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        bluetoothAdapter.cancelDiscovery();
-        bluetoothDevice = bluetoothAdapter.getRemoteDevice(address);
     }
 
-    public void IsBlueToothEnable(){
-        if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled() || bluetoothDevice == null){
-            Toast.makeText(context,"蓝牙不可用",Toast.LENGTH_SHORT).show();
+    public boolean IsBlueToothOpen() {
+        if (bluetoothAdapter.isEnabled()) {
+            return true;
+        } else {
+            return false;
         }
     }
 
-    public void CreateBlueTooth(){
-        try {
-            bluetoothSocket =bluetoothDevice.createRfcommSocketToServiceRecord(MY_UUID);
-            bluetoothSocket.connect();
-        } catch (IOException e) {
-            Log.d(TAG,e.getMessage());
-            try {
-                bluetoothSocket.close();
-            } catch (IOException e1) {
-                Log.d(TAG,e1.getMessage());
-            }
-        }
-    }
-
-    public void WriteData(String data){
+    public void WriteData(int data) {
         try {
             outputStream = bluetoothSocket.getOutputStream();
             inputStream = bluetoothSocket.getInputStream();
-            byte[] msgBuffer = data.getBytes();
+            byte[] msgBuffer = Integer.toString(data).getBytes();
+            Log.d(TAG, msgBuffer.toString());
             outputStream.write(msgBuffer);
         } catch (IOException e) {
-            Log.d(TAG,e.getMessage());
+            Log.d(TAG, e.getMessage());
         }
     }
 
-    public void CloseIO(){
+    public void CloseIO() {
         try {
-            if (bluetoothSocket != null){
+            if (bluetoothSocket != null) {
                 bluetoothSocket.close();
             }
-            if (outputStream != null){
+            if (outputStream != null) {
                 outputStream.flush();
                 outputStream.close();
             }
-            if (inputStream != null){
+            if (inputStream != null) {
                 inputStream.close();
             }
         } catch (IOException e) {
-            Log.d(TAG,e.getMessage());
+            Log.d(TAG, e.getMessage());
         }
     }
 
