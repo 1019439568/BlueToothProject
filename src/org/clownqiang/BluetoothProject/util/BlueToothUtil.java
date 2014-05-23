@@ -25,10 +25,6 @@ public class BlueToothUtil {
     private BluetoothSocket bluetoothSocket = null;
     private OutputStream outputStream = null;
     private InputStream inputStream = null;
-    private BluetoothDevice bluetoothDevice = null;
-
-    private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-    private static String address = "00:14:03:12:19:00";
 
     private static final String TAG = "BlueTooth_Util";
 
@@ -50,9 +46,8 @@ public class BlueToothUtil {
         try {
             outputStream = bluetoothSocket.getOutputStream();
             inputStream = bluetoothSocket.getInputStream();
-            byte[] msgBuffer = Integer.toString(data).getBytes();
-            Log.d(TAG, msgBuffer.toString());
-            outputStream.write(msgBuffer);
+            Log.d(TAG, data+"");
+            outputStream.write(data);
         } catch (IOException e) {
             Log.d(TAG, e.getMessage());
         }

@@ -17,7 +17,7 @@ public class MyApp extends Application {
     private BluetoothSocket bluetoothSocket = null;
     private BluetoothDevice bluetoothDevice = null;
     private BluetoothAdapter bluetoothAdapter = null;
-    private static String address = "00:14:03:12:19:00";
+    private static String address = "00:14:02:13:06:57";
 
 
     @Override

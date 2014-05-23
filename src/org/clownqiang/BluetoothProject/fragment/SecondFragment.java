@@ -102,8 +102,8 @@ public class SecondFragment extends Fragment {
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                Log.d(TAG,progress+"");
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+                Log.d(TAG,seekBar.getProgress()+"");
                 if (IsBlueTooth == true) {
                     blueToothUtil.WriteData(seekBar.getProgress());
                 }
@@ -111,12 +111,11 @@ public class SecondFragment extends Fragment {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                Log.d(TAG,seekBar.getProgress()+"");
+
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Log.d(TAG,seekBar.getProgress()+"");
             }
         });
     }

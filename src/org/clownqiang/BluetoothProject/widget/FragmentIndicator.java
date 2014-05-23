@@ -49,19 +49,19 @@ public class FragmentIndicator extends LinearLayout implements View.OnClickListe
 
     private void init() {
         mIndicators = new View[3];
-        mIndicators[0] = createIndicator(R.drawable.ic_launcher,
+        mIndicators[0] = createIndicator(R.drawable.ic_circle_grey,
                 R.string.string_home, COLOR_SELECT, TAG_ICON_HOME, TAG_TEXT_HOME);
         mIndicators[0].setBackgroundResource(R.drawable.indic_select);
         mIndicators[0].setTag(Integer.valueOf(0));
         mIndicators[0].setOnClickListener(this);
         addView(mIndicators[0]);
-        mIndicators[1] = createIndicator(R.drawable.ic_launcher,
+        mIndicators[1] = createIndicator(R.drawable.ic_rectangle_grey,
                 R.string.string_second, COLOR_UNSELECT, TAG_ICON_Second, TAG_TEXT_Second);
         mIndicators[1].setBackgroundColor(Color.alpha(0));
         mIndicators[1].setTag(Integer.valueOf(1));
         mIndicators[1].setOnClickListener(this);
         addView(mIndicators[1]);
-        mIndicators[2] = createIndicator(R.drawable.ic_launcher,
+        mIndicators[2] = createIndicator(R.drawable.ic_circle_grey,
                 R.string.string_about, COLOR_UNSELECT, TAG_ICON_About, TAG_TEXT_About);
         mIndicators[2].setBackgroundColor(Color.alpha(0));
         mIndicators[2].setTag(Integer.valueOf(2));
@@ -105,19 +105,19 @@ public class FragmentIndicator extends LinearLayout implements View.OnClickListe
         switch(mCurIndicator) {
             case 0:
                 prevIcon =(ImageView) mIndicators[mCurIndicator].findViewWithTag(TAG_ICON_HOME);
-                prevIcon.setImageResource(R.drawable.ic_launcher);
+                prevIcon.setImageResource(R.drawable.ic_circle_grey);
                 prevText = (TextView) mIndicators[mCurIndicator].findViewWithTag(TAG_TEXT_HOME);
                 prevText.setTextColor(COLOR_UNSELECT);
                 break;
             case 1:
                 prevIcon =(ImageView) mIndicators[mCurIndicator].findViewWithTag(TAG_ICON_Second);
-                prevIcon.setImageResource(R.drawable.ic_launcher);
+                prevIcon.setImageResource(R.drawable.ic_rectangle_grey);
                 prevText = (TextView) mIndicators[mCurIndicator].findViewWithTag(TAG_TEXT_Second);
                 prevText.setTextColor(COLOR_UNSELECT);
                 break;
             case 2:
                 prevIcon =(ImageView) mIndicators[mCurIndicator].findViewWithTag(TAG_ICON_About);
-                prevIcon.setImageResource(R.drawable.ic_launcher);
+                prevIcon.setImageResource(R.drawable.ic_circle_grey);
                 prevText = (TextView) mIndicators[mCurIndicator].findViewWithTag(TAG_TEXT_About);
                 prevText.setTextColor(COLOR_UNSELECT);
                 break;
@@ -130,19 +130,19 @@ public class FragmentIndicator extends LinearLayout implements View.OnClickListe
         switch(which) {
             case 0:
                 currIcon =(ImageView) mIndicators[which].findViewWithTag(TAG_ICON_HOME);
-                currIcon.setImageResource(R.drawable.ic_launcher);
+                currIcon.setImageResource(R.drawable.ic_circle_blue);
                 currText = (TextView) mIndicators[which].findViewWithTag(TAG_TEXT_HOME);
                 currText.setTextColor(COLOR_SELECT);
                 break;
             case 1:
                 currIcon =(ImageView) mIndicators[which].findViewWithTag(TAG_ICON_Second);
-                currIcon.setImageResource(R.drawable.ic_launcher);
+                currIcon.setImageResource(R.drawable.ic_rectangle_blue);
                 currText = (TextView) mIndicators[which].findViewWithTag(TAG_TEXT_Second);
                 currText.setTextColor(COLOR_SELECT);
                 break;
             case 2:
                 currIcon =(ImageView) mIndicators[which].findViewWithTag(TAG_ICON_About);
-                currIcon.setImageResource(R.drawable.ic_launcher);
+                currIcon.setImageResource(R.drawable.ic_circle_blue);
                 currText = (TextView) mIndicators[which].findViewWithTag(TAG_TEXT_About);
                 currText.setTextColor(COLOR_SELECT);
                 break;
